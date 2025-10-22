@@ -1,0 +1,8 @@
+bedrock-agentcore
+bedrock-agentcore-starter-toolkit
+PyYAML
+python-magic
+amazon-textract-textractor
+pandas
+strands-agents
+strands-agents-tools

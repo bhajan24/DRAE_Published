@@ -1,0 +1,22 @@
+AWS:
+    region_name: us-east-1
+    
+AGENTS:
+    uni_application_analyst:
+        agentcore_arn: arn:aws:bedrock-agentcore:us-east-1:YOUR_AWS_ACCOUNT_ID:runtime/uni_application_analyst-YOUR_AGENT_ID
+        qualifier: DEFAULT
+
+DYNAMO_DB:
+    application_table_name: UA-applications
+    evaluations_table_name: uni-applications-evaluated
+    wishlist_table_name: uni-wishlist
+
+REPORTS:
+    save_bucket: your-s3-bucket-name
+    save_key: university_app/reports
+
+PROCESS:
+    application_processing_sm: arn:aws:states:us-east-1:YOUR_AWS_ACCOUNT_ID:stateMachine:uni-application-processing-v2
+    application_processing_parallel_sm: arn:aws:states:us-east-1:YOUR_AWS_ACCOUNT_ID:stateMachine:uni-application-processing-parallel
+    max_parallel_documents: 10
+    

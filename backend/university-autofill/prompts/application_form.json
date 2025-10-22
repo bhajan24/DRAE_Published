@@ -1,0 +1,65 @@
+{
+  "personal_information": {
+    "full_name": "",
+    "date_of_birth": "",
+    "gender": "",
+    "nationality": "",
+    "email": "",
+    "phone": "",
+    "hometown": "",
+    "passport_number": "",
+    "family_background": ""
+  },
+  "academic_background": {
+    "institution": "",
+    "degree": "",
+    "graduation_date": "",
+    "gpa": "",
+    "gpa_4_scale": "",
+    "trend": "",
+    "rank": "",
+    "strengths": [],
+    "weaknesses": []
+  },
+  "test_scores": {
+    "gre_verbal": "",
+    "gre_quantitative": "",
+    "gre_awa": "",
+    "english_test": "",
+    "english_score": ""
+  },
+  "research_experience": {
+    "count": "",
+    "projects": [
+      {
+        "title": "",
+        "duration": "",
+        "role": "",
+        "supervisor": "",
+        "outcome": ""
+      }
+    ],
+    "publications": "",
+    "conferences": "",
+    "lab_skills": []
+  },
+  "work_experience": [
+    {
+      "organization": "",
+      "role": "",
+      "duration": "",
+      "responsibilities": ""
+    }
+  ],
+  "extracurricular": [],
+  "program_specific": {
+    "specialization": "",
+    "research_interest": "",
+    "career_goal": ""
+  },
+  "profile_analysis": {
+    "strengths": "",
+    "challenges": "",
+    "profile_type": ""
+  }
+}

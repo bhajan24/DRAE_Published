@@ -1,0 +1,246 @@
+The following are the evaludation framework for the student applications.
+Level 1: Initial Screening & Eligibility
+Document Requirements
+
+Bachelor’s degree in Agriculture or closely related field (4-year)
+Official transcripts (all semesters/years)
+English proficiency: TOEFL iBT (minimum 79), IELTS (minimum 6.5)
+GRE (recommended, not always required, but strengthens application)
+Statement of Purpose (SOP)
+Resume/CV
+3 Letters of Recommendation (LORs)
+Passport copy
+Application fee receipt
+
+Minimum Eligibility Criteria
+
+Requirement	Possible Values/Thresholds
+Minimum GPA	3.0/4.0 (B average)
+English Proficiency	TOEFL ≥ 79, IELTS ≥ 6.5
+GRE	Quant ≥ 150, Verbal ≥ 145, AWA ≥ 3.0
+Prerequisite Coursework	Plant Science, Soil Science, Statistics
+Degree	B.Sc. Agriculture or related (4 years)
+Level 1 JSON Output (Template)
+
+json
+{
+  "level": 1,
+  "status": "<PASS | INCOMPLETE | FAIL>",
+  "checklist": {
+    "documents_complete": <true/false>,
+    "bachelor_degree_verified": <true/false>,
+    "minimum_gpa_met": <true/false>,
+    "english_proficiency_valid": <true/false>,
+    "gre_valid": <true/false>,
+    "prerequisite_courses_met": <true/false>,
+    "application_fee_paid": <true/false>
+  },
+  "missing_items": [],
+  "gpa_analysis": {
+    "original_gpa": "<e.g., 7.8/10>",
+    "converted_gpa": "<e.g., 3.12>",
+    "meets_minimum": <true/false>
+  },
+  "english_analysis": {
+    "test": "<TOEFL/IELTS>",
+    "score": "<e.g., 92>",
+    "meets_minimum": <true/false>
+  },
+  "gre_analysis": {
+    "quant_score": "<e.g., 155>",
+    "verbal_score": "<e.g., 148>",
+    "awa_score": "<e.g., 3.5>",
+    "meets_minimum": <true/false>
+  },
+  "prerequisite_check": {
+    "plant_science": "<COMPLETED/NOT_COMPLETED>",
+    "soil_science": "<COMPLETED/NOT_COMPLETED>",
+    "statistics": "<COMPLETED/NOT_COMPLETED>",
+    "all_met": <true/false>
+  },
+  "next_action": "<level2 | end>"
+}
+Level 2: Academic Credentials Evaluation
+Weight: 40% of final composite
+
+2.1 Undergraduate GPA Analysis (50% of Level 2)
+
+Convert to 4.0 scale, check trend, focus on core agriculture courses.
+
+2.2 GRE Analysis (30% of Level 2)
+
+Quantitative, Verbal, AWA percentiles and composite.
+
+2.3 Coursework Depth & Specialization Preparation (20% of Level 2)
+
+Number of agriculture courses, advanced/specialization courses, grades in core/prerequisite subjects.
+
+Level 2 JSON Output (Template)
+
+json
+{
+  "level": 2,
+  "academic_score": "<float>",
+  "component_scores": {
+    "gpa_score": "<float>",
+    "gre_score": "<float>",
+    "coursework_score": "<float>"
+  },
+  "gpa_analysis": {
+    "original_gpa": "<string>",
+    "converted_gpa": "<float>",
+    "trend": "<IMPROVING/STABLE/DECLINING>",
+    "core_agriculture_gpa": "<float>",
+    "semester_progression": ["<float>", "..."]
+  },
+  "gre_analysis": {
+    "quant_score": "<int>",
+    "verbal_score": "<int>",
+    "awa_score": "<float>",
+    "composite_percentile": "<int>"
+  },
+  "coursework_analysis": {
+    "total_agriculture_courses": "<int>",
+    "advanced_courses": "<int>",
+    "specialization_courses": "<int>",
+    "prerequisites_met": "<true/false>",
+    "grade_quality": "<string>"
+  },
+  "status": "<PASS | CONDITIONAL | FAIL>",
+  "next_action": "<level3 | end>"
+}
+Level 3: Holistic Review
+Weight: 35% of final composite
+
+3.1 Statement of Purpose (30%)
+
+Research interest, US agriculture context, practical experience, specialization alignment, career goals.
+
+3.2 Letters of Recommendation (40%)
+
+Academic/professional credibility, fieldwork, research, communication, leadership.
+
+3.3 Research & Practical Experience (30%)
+
+Research projects, publications, internships, fieldwork, technical skills.
+
+Level 3 JSON Output (Template)
+
+json
+{
+  "level": 3,
+  "holistic_score": "<float>",
+  "component_scores": {
+    "sop_score": "<float>",
+    "lor_score": "<float>",
+    "research_practical_score": "<float>"
+  },
+  "sop_analysis": {
+    "research_interest_score": "<int>",
+    "agricultural_context": "<string>",
+    "practical_experience_score": "<int>",
+    "specialization_alignment_score": "<int>",
+    "career_goals_score": "<int>",
+    "key_themes": ["<string>", "..."],
+    "agricultural_relevance": "<string>"
+  },
+  "lor_analysis": {
+    "lor1": {
+      "recommender": "<string>",
+      "credibility": "<HIGH/MEDIUM/LOW>",
+      "score": "<int>",
+      "highlights": "<string>"
+    },
+    "lor2": { ... },
+    "lor3": { ... },
+    "consistency": "<HIGH/MEDIUM/LOW>"
+  },
+  "research_practical_analysis": {
+    "research_projects": "<int>",
+    "publications": "<int>",
+    "internship_months": "<int>",
+    "extension_experience": "<string>",
+    "technical_skills": ["<string>", "..."],
+    "fieldwork_quality": "<string>"
+  },
+  "strengths": ["<string>", "..."],
+  "weaknesses": ["<string>", "..."],
+  "status": "<PASS | WAITLIST | FAIL>",
+  "next_action": "<level4 | end>"
+}
+
+Level 4: Final Decision & Synthesis
+Objective: Integrate insights from Levels 1–3 to produce a comprehensive final evaluation, actionable recommendations, and decision rationale for university officers.
+
+Composite Weighting:
+    Academic Credentials (Level 2): 40%
+    Holistic Review (Level 3): 35%
+    Program Fit & Specialization Alignment: 15%
+    Potential & Trajectory: 10%
+
+4.1 Program Fit & Specialization Alignment (15%)
+Purpose: Assess alignment of the applicant’s background, coursework, and interests with the specific M.Sc. Agricultural Sciences specialization at OSU.
+
+Components:
+    Course Readiness (6 points):
+        Completed advanced courses in specialization
+        Meets prerequisites for core graduate courses
+
+    Faculty Research Alignment (5 points):
+
+        Applicant’s research interest matches OSU faculty expertise
+        Evidence of prior work or publications in the same area
+
+    Contextual Fit (4 points):
+        Understanding of U.S. agricultural systems
+        Adaptability to OSU’s climate/data/production systems
+
+Scoring Rubric (0–15):
+    13–15 (Excellent): Exceeds course/prerequisite requirements, strong faculty match, clear U.S. context
+    10–12 (Good): Meets all requirements, some faculty overlap, basic context understanding
+    7–9 (Adequate): Meets minimum, limited faculty match, minimal context knowledge
+    <7 (Weak): Missing key prerequisites, poor alignment, context gap
+
+4.2 Potential & Trajectory Assessment (10%)
+Purpose: Gauge the applicant’s capacity for growth, leadership, and long-term impact in agricultural science.
+
+Components:
+
+    Academic & Research Trajectory (4 points):
+        GPA trend, research progression, publication pipeline
+
+    Leadership & Initiative (3 points):
+        Extracurricular leadership, entrepreneurial ventures, extension roles
+
+    Adaptability & Resilience (3 points):
+        Overcoming challenges, cross-cultural adaptability, fieldwork resilience
+
+Scoring Rubric (0–10):
+    9–10 (High): Strong upward trend, leadership roles, proven resilience
+    7–8 (Moderate): Good trajectory, some leadership, adequate resilience
+    5–6 (Low): Stable or minor growth, limited leadership, moderate resilience
+    <5 (Very Low): Declining trajectory, no leadership, poor resilience
+
+4.3 Composite Score Calculation
+
+    Composite_Score = (Level2_Academic_Score × 0.40) + (Level3_Holistic_Score × 0.35) + (Program_Fit_Score    × 0.15) + (Potential_Score      × 0.10)
+    All component scores normalized to 0–100 before weighting.
+    Result rounded to two decimal places.
+
+4.4 Final Decision & Recommendations
+Decision Categories:
+    ACCEPT: Composite ≥ 80
+    WAITLIST: Composite 70–79
+    REJECT: Composite < 70
+
+Confidence Levels:
+    HIGH: Composite ≥ 85, consistent strengths, no red flags
+    MEDIUM: Composite 75–84, minor concerns balanced by strengths
+    LOW: Composite 70–74, borderline profile, several concerns
+
+Funding Recommendations:
+    Research Assistantship (RA): Applicants with strong research records (publications, projects aligned with faculty).
+    Teaching Assistantship (TA): Applicants with high English/verbal skills and strong foundational knowledge.
+    Fellowship: Exceptional candidates (Composite ≥ 90) or underrepresented backgrounds.
+    Self-Funded: Composite 70–79 without funding offer or preference to self-support.
+"""

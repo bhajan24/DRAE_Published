@@ -1,0 +1,112 @@
+{
+  "Comment": "Optimized University Application Processing with Parallel Document Extraction",
+  "StartAt": "PrepareDocumentList",
+  "States": {
+    "PrepareDocumentList": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${LambdaFunctionArn}",
+        "Payload": {
+          "Records": [{
+            "eventSource": "student-application",
+            "action": "prepare_document_list",
+            "input.$": "$"
+          }]
+        }
+      },
+      "ResultPath": "$.documentList",
+      "Next": "CheckDocuments"
+    },
+    "CheckDocuments": {
+      "Type": "Choice",
+      "Choices": [{
+        "Variable": "$.documentList.Payload.result.documents",
+        "IsPresent": true,
+        "Next": "ParallelDocumentExtraction"
+      }],
+      "Default": "EvaluateApplication"
+    },
+    "ParallelDocumentExtraction": {
+      "Type": "Map",
+      "ItemsPath": "$.documentList.Payload.result.documents",
+      "MaxConcurrency": 10,
+      "Iterator": {
+        "StartAt": "ExtractSingleDocument",
+        "States": {
+          "ExtractSingleDocument": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "Parameters": {
+              "FunctionName": "${LambdaFunctionArn}",
+              "Payload": {
+                "Records": [{
+                  "eventSource": "student-application",
+                  "action": "extract_single_document",
+                  "input": {
+                    "application_id.$": "$.application_id",
+                    "document.$": "$"
+                  }
+                }]
+              }
+            },
+            "End": true
+          }
+        }
+      },
+      "ResultPath": "$.extractionResults",
+      "Next": "ConsolidateResults"
+    },
+    "ConsolidateResults": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${LambdaFunctionArn}",
+        "Payload": {
+          "Records": [{
+            "eventSource": "student-application",
+            "action": "consolidate_extraction_results",
+            "input": {
+              "application_id.$": "$.application_id",
+              "extraction_results.$": "$.extractionResults"
+            }
+          }]
+        }
+      },
+      "ResultPath": "$.consolidation",
+      "Next": "EvaluateApplication"
+    },
+    "EvaluateApplication": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${LambdaFunctionArn}",
+        "Payload": {
+          "Records": [{
+            "eventSource": "student-application",
+            "action": "evaluate_application",
+            "input.$": "$"
+          }]
+        }
+      },
+      "ResultPath": "$.evaluation",
+      "Next": "GenerateReport"
+    },
+    "GenerateReport": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${LambdaFunctionArn}",
+        "Payload": {
+          "Records": [{
+            "eventSource": "student-application",
+            "action": "generate_report",
+            "input.$": "$"
+          }]
+        }
+      },
+      "ResultPath": "$.report",
+      "End": true
+    }
+  }
+}

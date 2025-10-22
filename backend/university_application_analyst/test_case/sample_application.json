@@ -1,0 +1,57 @@
+{
+  "application_id": "AGR-2025-TEST",
+  "student_name": "John Doe",
+  "specialization": "Crop Sciences",
+  "personal_information": {
+    "full_name": "John Doe",
+    "email": "john.doe@email.com",
+    "phone": "+1-555-0123",
+    "nationality": "American",
+    "date_of_birth": "2001-05-15",
+    "passport_number": "US123456789"
+  },
+  "academic_background": {
+    "degree": "B.Sc. Agriculture",
+    "institution": "State University",
+    "gpa": "8.2/10.0",
+    "gpa_4_scale": 3.28,
+    "graduation_date": "2024-05-15",
+    "rank": "Top 20%",
+    "trend": "Improving"
+  },
+  "test_scores": {
+    "gre_quantitative": 160,
+    "gre_verbal": 155,
+    "gre_awa": 4.0,
+    "english_test": "IELTS",
+    "english_score": 7.5
+  },
+  "research_experience": {
+    "count": 1,
+    "projects": [
+      {
+        "title": "Sustainable Crop Production",
+        "supervisor": "Dr. Smith",
+        "duration": "8 months",
+        "role": "Primary",
+        "outcome": "Thesis"
+      }
+    ],
+    "lab_skills": ["Soil analysis", "Plant breeding"],
+    "publications": 0,
+    "conferences": 0
+  },
+  "work_experience": [
+    {
+      "organization": "AgriCorp",
+      "role": "Research Assistant",
+      "duration": "6 months",
+      "responsibilities": "Field research"
+    }
+  ],
+  "program_specific": {
+    "specialization": "Crop Sciences",
+    "research_interest": "Sustainable agriculture",
+    "career_goal": "Agricultural research"
+  }
+}
