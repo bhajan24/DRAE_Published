@@ -336,7 +336,7 @@ def autofill_form():
         return jsonify({
             'autofill_data': {
                 'name': 'Alex Johnson',
-                'email': 'alex.johnson@email.com',
+                'email': 'student@example.com',
                 'gpa': '3.8',
                 'major': 'Computer Science',
                 'skills': ['Python', 'Machine Learning', 'Data Analysis']
