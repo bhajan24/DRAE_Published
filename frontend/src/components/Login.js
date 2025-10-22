@@ -24,7 +24,7 @@ const Login = ({ onLogin, darkMode }) => {
         setPassword('');
       } else {
         setEmail('admin@university.edu');
-        setPassword('admin123');
+        setPassword('demo123');
       }
     }
   };
@@ -44,7 +44,7 @@ const Login = ({ onLogin, darkMode }) => {
       });
     } else {
       // Admin validation
-      if (email === 'admin@university.edu' && password === 'admin123') {
+      if (email === 'admin@university.edu' && password === 'demo123') {
         onLogin({
           role,
           email,
