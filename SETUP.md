@@ -15,9 +15,7 @@ This repository has been sanitized for public use. You need to configure your AW
 ### Configuration Files to Update
 
 - `backend/lambda/config.yaml`
-- `backend/university-autofill/.env` (copy from .env.template)
-- `backend/university_application_analyst/.env` (copy from .env.template)
-- `backend/university_application_analyst/.bedrock_agentcore.yaml` (copy from .bedrock_agentcore.yaml.template)
+
 
 ### AWS Resources Required
 
